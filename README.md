@@ -336,13 +336,65 @@ maximog1 <- quantile(estaturas_gr1_ordenadas, 0.4, na.rm = TRUE)
 
 maximog1
 ``` 
-![Punto 5.1](img/P2-4.png)
-
-
 ```R
 # Calcular el valor mínimo del 30% de las estaturas mayores en el Grupo 2
 minimog2 <- quantile(estaturas_gr2_ordenadas, 0.7, na.rm = TRUE)
 
 minimog2
 
+```
+![Punto 5.1](img/P2-4%20.png)
+
+### 5. ¿Dónde son las variables edad y estatura más homogéneas: en el grupo A o en el B?
+
 ```R
+hist(g1$Edad)
+
+hist(g2$Edad)
+
+
+hist.default(g1$Estatura)
+hist(g2$Estatura)
+```
+![Punto 5.1](img/P2-5.1.1%20.png)
+![Punto 5.1](img/P2-5.1.2%20.png)
+![Punto 5.1](img/P2-5.2.1%20.png)
+![Punto 5.1](img/P2-5.2.2%20.png)
+
+
+
+
+### 6. ¿En qué grupo presentan los individuos una altura media mayor? ¿En qué grupo #presentan los individuos una altura mediana menor?
+```r
+media_altura_gr1 <- mean(g1$Estatura, na.rm = TRUE)
+media_altura_gr2 <- mean(g2$Estatura, na.rm = TRUE)
+
+mediana_altura_gr1 <- median(g1$Estatura, na.rm = TRUE)
+mediana_altura_gr2 <- median(g2$Estatura, na.rm = TRUE)
+
+# Mostrar los resultados
+print(paste("Media de altura en Grupo 1:", media_altura_gr1))
+print(paste("Media de altura en Grupo 2:", media_altura_gr2))
+
+print(paste("Mediana de altura en Grupo 1:", mediana_altura_gr1))
+print(paste("Mediana de altura en Grupo 2:", mediana_altura_gr2))
+```
+![Punto 5.1](img/P2-6%20.png)
+
+
+
+
+### 7. Estudia la asimetría y la curtosis de la variable Estatura en el grupo A.
+
+```R
+# Calcular la asimetría y la curtosis de la variable Estatura en el Grupo 1
+asimetria_estatura_gr1 <- skewness(g1$Estatura, na.rm = TRUE)
+curtosis_estatura_gr1 <- kurtosis(g1$Estatura, na.rm = TRUE)
+
+# Mostrar los resultados
+print(paste("Asimetría de Estatura en Grupo 1:", asimetria_estatura_gr1))
+print(paste("Curtosis de Estatura en Grupo 1:", curtosis_estatura_gr1))
+
+```
+![Punto 5.1](img/P2-7%20.png)
+
