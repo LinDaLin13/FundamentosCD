@@ -1,5 +1,5 @@
 library(ggplot2)
-
+library(e1071)
 
 g1 <- read.csv("C:\\Users\\USER\\Documents\\grupo 1.csv", sep = ';', encoding = "UTF-8")
 
@@ -52,7 +52,9 @@ ggplot(df1, aes(x = "", y = count, fill = grupo)) +
   geom_bar(width = 1, stat = "identity", color = "black", size = 1.5, position = "fill") +
   coord_polar(theta = "y") +
   scale_fill_manual(values = colores) +
-  labs(title = "Distribución de Grupo Sanguíneo") +
+  labs(title = "Distribución de 
+  Grupo Sanguíneo 
+       GRUPO 1") +
   theme_void() +
   theme(legend.position = "bottom",
         panel.border = element_rect(color = "black", fill = NA, size = 2),
@@ -77,7 +79,9 @@ ggplot(df2, aes(x = "", y = count, fill = grupo)) +
   geom_bar(width = 1, stat = "identity", color = "black", size = 1.5, position = "fill") +
   coord_polar(theta = "y") +
   scale_fill_manual(values = colores) +
-  labs(title = "Distribución de Grupo Sanguíneo") +
+  labs(title = "Distribución de 
+      Grupo Sanguíneo
+       GRUPO 2") +
   theme_void() +
   theme(legend.position = "bottom",
         panel.border = element_rect(color = "black", fill = NA, size = 2),
@@ -142,9 +146,7 @@ print(boxplot_edad_g2)
 
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-# Ordenar las estaturas de menor a mayor en el Grupo 1 y Grupo 2
-estaturas_gr1_ordenadas <- sort(g1$Estatura, na.last = TRUE)
-estaturas_gr2_ordenadas <- sort(g2$Estatura, na.last = TRUE)
+
 
 
 # Calcular el valor máximo del 40% de las estaturas más pequeñas en el Grupo 1
@@ -176,7 +178,18 @@ hist(g2$Estatura)
 #presentan los individuos una altura mediana menor?
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+media_altura_gr1 <- mean(g1$Estatura, na.rm = TRUE)
+media_altura_gr2 <- mean(g2$Estatura, na.rm = TRUE)
 
+mediana_altura_gr1 <- median(g1$Estatura, na.rm = TRUE)
+mediana_altura_gr2 <- median(g2$Estatura, na.rm = TRUE)
+
+# Mostrar los resultados
+print(paste("Media de altura en Grupo 1:", media_altura_gr1))
+print(paste("Media de altura en Grupo 2:", media_altura_gr2))
+
+print(paste("Mediana de altura en Grupo 1:", mediana_altura_gr1))
+print(paste("Mediana de altura en Grupo 2:", mediana_altura_gr2))
 
 
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,10 +197,13 @@ hist(g2$Estatura)
 #7. Estudia la asimetría y la curtosis de la variable Estatura en el grupo A.
 
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Calcular la asimetría y la curtosis de la variable Estatura en el Grupo 1
+asimetria_estatura_gr1 <- skewness(g1$Estatura, na.rm = TRUE)
+curtosis_estatura_gr1 <- kurtosis(g1$Estatura, na.rm = TRUE)
 
-
-
-
+# Mostrar los resultados
+print(paste("Asimetría de Estatura en Grupo 1:", asimetria_estatura_gr1))
+print(paste("Curtosis de Estatura en Grupo 1:", curtosis_estatura_gr1))
 
 
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////
