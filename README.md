@@ -238,10 +238,12 @@ ggplot(df1, aes(x = "", y = count, fill = grupo)) +
         plot.caption = element_text(hjust = 0.5, size = 12, margin = margin(t = 10)))
 grupo_counts <- table(g1$Grupo.Sanguineo)
 ```
+![Punto 5.1](img/P2-1-1.png)
 
 
 
 
+```R
 grupo_counts2 <- table(g2$Grupo.Sanguineo)
 
 
@@ -261,3 +263,86 @@ ggplot(df2, aes(x = "", y = count, fill = grupo)) +
         plot.background = element_rect(fill = "white", color = "black", size = 1.5),
         panel.grid.minor = element_blank(),
         plot.caption = element_text(hjust = 0.5, size = 12, margin = margin(t = 10)))
+```
+![Punto 5.1](img/P2-1-2.png)
+
+
+### 2. Representar la variable Estatura mediante un histograma en cada uno de los grupos.
+
+
+```R
+histograma_gr1 <- ggplot(g1, aes(x = Estatura)) +
+  geom_histogram(fill = "skyblue", color = "black", bins = 10) +
+  labs(title = "Histograma de Estatura - Grupo 1", x = "Estatura", y = "Frecuencia") +
+  theme_minimal()
+``` 
+![Punto 5.1](img/P2-2-1.png)
+
+# Histograma para el grupo 2`
+```R
+histograma_gr2 <- ggplot(g2, aes(x = Estatura)) +
+  geom_histogram(fill = "lightgreen", color = "black", bins = 10) +
+  labs(title = "Histograma de Estatura - Grupo 2", x = "Estatura", y = "Frecuencia") +
+  theme_minimal()
+
+# Mostrar los histogramas
+print(histograma_gr1)
+print(histograma_gr2)
+```
+![Punto 5.1](img/P2-2-2.png)
+
+
+### 3. ¿Existe algún dato atípico en la variable Edad en el grupo A? ¿Y en el grupo B?
+
+```R
+# Crear diagrama de caja para Grupo 1 - Edad
+boxplot_edad_g1 <- ggplot(g1, aes(x = "", y = Edad)) +
+  geom_boxplot(fill = "skyblue") +
+  labs(title = "Diagrama de Caja - Grupo 1 - Edad", x = "", y = "Edad") +
+  theme_minimal()
+
+# Mostrar los diagramas de caja
+  print(boxplot_edad_g1)
+```
+![Punto 5.1](img/P2-3-1.png)
+
+```R
+# Crear diagrama de caja para Grupo 2 - Edad
+boxplot_edad_g2 <- ggplot(g2, aes(x = "", y = Edad)) +
+  geom_boxplot(fill = "lightgreen") +
+  labs(title = "Diagrama de Caja - Grupo 2 - Edad", x = "", y = "Edad") +
+  theme_minimal()
+
+# Mostrar los diagramas de caja
+
+print(boxplot_edad_g2)
+```
+
+![Punto 5.1](img/3-2.png)
+
+#se observa que no hay datos atipicos (outliers) que afenten las mediciones
+
+
+
+
+### 4. ¿Cuál es el valor máximo del 40% de las estaturas más pequeñas de los individuos en el grupo 1? ¿Y el valor mínimo del 30% de las estaturas mayores de los individuos en el grupo 2?
+
+
+
+```R
+
+# Calcular el valor máximo del 40% de las estaturas más pequeñas en el Grupo 1
+maximog1 <- quantile(estaturas_gr1_ordenadas, 0.4, na.rm = TRUE)
+
+maximog1
+``` 
+![Punto 5.1](img/P2-4.png)
+
+
+```R
+# Calcular el valor mínimo del 30% de las estaturas mayores en el Grupo 2
+minimog2 <- quantile(estaturas_gr2_ordenadas, 0.7, na.rm = TRUE)
+
+minimog2
+
+```R
