@@ -320,9 +320,9 @@ print(boxplot_edad_g2)
 
 ![Punto 5.1](img/3-2.png)
 
+# Conclusiones: 
+
 #se observa que no hay datos atipicos (outliers) que afenten las mediciones
-
-
 
 
 ### 4. ¿Cuál es el valor máximo del 40% de las estaturas más pequeñas de los individuos en el grupo 1? ¿Y el valor mínimo del 30% de las estaturas mayores de los individuos en el grupo 2?
@@ -397,4 +397,12 @@ print(paste("Curtosis de Estatura en Grupo 1:", curtosis_estatura_gr1))
 
 ```
 ![Punto 5.1](img/P2-7%20.png)
+
+
+# Conclusiones 
+
+Cabe mencionar que, en el presente ejercicio de programación de código en el editor RStudio, es importante tener presente la claridad del código, el uso adecuado de las librerías y el orden en el cual se suministra, ya que, dependiendo de ello se podrán observar los resultados correctos que arroje el sistema. Asimismo, es importante que haya una buena preparación de los datos; como: omitir los valores NA, si hay valores con puntos o comas, es necesario que se ordenen por caracteres numéricos, ya que los resultados varían y dependen de una limpieza. En la experiencia del análisis de los datos habían dos casillas en blanco adicionales, también teníamos tildes y comas, por lo tanto tuvimos que reemplazarlos para poder ejecutar los códigos, porque cuando se ejecutaron sin la limpieza adecuada no era posible obtener resultados.
+
+
+
 
